@@ -170,7 +170,7 @@
             //
             if (facebook_on) {
                 var fb_enc_uri = encodeURIComponent(uri + options.services.facebook.referrer_track);
-                if (options.services.facebook.app_id != '') {
+                if (options.services.facebook.app_id) {
                     var fb_code = '<div class="fb-like" data-href="' + fb_enc_uri + '" data-send="false" data-layout="button_count" data-width="145" data-show-faces="false" data-action="' + options.services.facebook.action + '"></div>';
                 } else {
                     var fb_code = '<iframe src="http://www.facebook.com/plugins/like.php?locale=' + options.services.facebook.language + '&amp;href=' + fb_enc_uri + '&amp;send=false&amp;layout=button_count&amp;width=120&amp;show_faces=false&amp;action=' + options.services.facebook.action + '&amp;colorscheme=light&amp;font&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:145px; height:21px;" allowTransparency="true"></iframe>';
@@ -185,7 +185,7 @@
                     if ($container_fb.find('span.switch').hasClass('off')) {
                         $container_fb.addClass('info_off');
                         $container_fb.find('span.switch').addClass('on').removeClass('off').html(options.services.facebook.txt_fb_on);
-                        if ((options.services.facebook.app_id != '') && ($('#fb-root').length == 0)) {
+                        if ((options.services.facebook.app_id) && ($('#fb-root').length == 0)) {
                             $('body').prepend('<div id="fb-root"></div>');
                             (function(d, s, id) {
                                 var js, fjs = d.getElementsByTagName(s)[0];
