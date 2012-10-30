@@ -26,6 +26,7 @@
 2) 	Zusatzfunktionen
 2.1)	Unterstützung von Xing und LinkedIn
 2.2)	Benutzerdefinierte Include-Codes
+2.3)	HTML5-Version des Facebook Like-Buttons
 
 3) 	Installation
 
@@ -44,7 +45,7 @@ Folgende Funktionen wurden zusätzlich mit eingebunden:
 2.1) Unterstützung von Xing und LinkedIn
 
 Socialshareprivacy wurde um die Share-Buttons von Xing und LinkedIn erweitert. Die Einbindung und Konfiguration funktioniert
-analog zu den bisher unterstützen Buttons von facebook, Twitter und Google+.
+analog zu den bisher unterstützen Buttons von Facebook, Twitter und Google+.
 
 2.2) Benutzerdefinierte Include-Codes
 
@@ -52,11 +53,22 @@ Die Anbieter der Share-Buttons bieten meist auf ihren Seiten mehrere Möglichkei
 (z.B. mit oder ohne Counter, etc.). Über den Parameter share_btn_code können Sie ihren individuell generierten Code in das 
 Socialshareprivacy Plugin einbinden. Wird der Parameter nicht verwendet, oder ist er leer, so wird der Standard-Code verwendet.
 
+2.3) HTML5-Version des Facebook Empfehlen-Buttons
+
+Wenn Sie Ihren Website-Besuchern die Möglichkeit geben möchten, das vom Facebook-Empfehlen-Button erzeugte Timeline-Posting mit
+einem eigenen Text zu personalisieren, muss das Socialshareprivacy Plugin die HTML5-Version des Facebook Empfehlen-Buttons
+verwenden. Die vom Socialshareprivacy Plugin standardmäßig genutzte iFrame-Variante des Facebook Empfehlen-Buttons hat dieses
+Feature nämlich nicht.
+Die Nutzung der HTML5-Version des Like-Buttons erfordert (im Gegensatz zur iFrame-Version) die Angabe einer App-ID, welche Sie 
+auf https://developers.facebook.com/apps für Ihre Website erstellen können. Um das Socialshareprivacy Plugin anzuweisen, die
+HTML5-Version des Facebook Empfehlen-Buttons zu verwenden, genügt die Angabe der Facebook-App-ID Ihrer Website mithilfe des
+Parameters app_id (siehe Beispiel unten).
+
 3) Installation und Konfiguration
 ----------------
 
-Folgen sie bitte den Anweisungen in der index.html (Im Paket enthalten) zu der Installation des Plugins von Heise.
-Um die Funktionen von Socialshareprivy-XL nutzen zu können, ersetzen Sie einfach die folgende Zeilen:
+Folgen Sie bitte den Anweisungen in der index.html (Im Paket enthalten) zu der Installation des Plugins von Heise.
+Um die Funktionen von Socialshareprivacy-XL nutzen zu können, ersetzen Sie einfach die folgende Zeilen:
 
 - die Einbindug der js-Datei:
 
@@ -94,24 +106,15 @@ $('#socialshareprivacy').socialSharePrivacy({
 });
 
 
+Mit dem Parameter app_id kann die HTML5-Version des Facebook Empfehlen-Buttons verendet werden, die Ihren Website-Besuchern
+die Möglichkeit gibt, das vom Facebook-Empfehlen-Button erzeugte Timeline-Posting mit einem eigenen Text zu personalisieren.
 
+Bsp:
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+$('#socialshareprivacy').socialSharePrivacy({
+    services : {
+        facebook : {
+            'app_id' : '[App-Id Ihrer Website]'
+        }
+    }
+});

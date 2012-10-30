@@ -18,8 +18,11 @@
  * Copyright (c) 2012 David Sann
  * Illusions-Schmiede Gmbh http://www.illusions-schmiede.com
  *
+ * Ergänzung der HTML5-Version des Facebook Empfehlen-Buttons
+ * durch Michael van Laar, http://michaelvanlaar.de
+ *
  * is released under the MIT License http://www.opensource.org/licenses/mit-license.php 
- * 
+ *
  */
 (function ($) {
 
@@ -206,12 +209,11 @@
 			//
 			if (facebook_on) {
 				var fb_enc_uri = encodeURIComponent(uri + options.services.facebook.referrer_track);
-				if(options.services.facebook.share_btn_code != '')
-				{
+				if (options.services.facebook.share_btn_code != '') {
 					var fb_code = options.services.facebook.share_btn_code;
-				}
-				else
-				{
+				} else if (options.services.facebook.app_id != '') {
+					var fb_code = '<div class="fb-like" data-href="' + fb_enc_uri + '" data-send="false" data-layout="button_count" data-width="145" data-show-faces="false" data-action="' + options.services.facebook.action + '"></div>';
+				} else {
 					var fb_code = '<iframe src="http://www.facebook.com/plugins/like.php?locale=' + options.services.facebook.language + '&amp;href=' + fb_enc_uri + '&amp;send=false&amp;layout=button_count&amp;width=120&amp;show_faces=false&amp;action=' + options.services.facebook.action + '&amp;colorscheme=light&amp;font&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:145px; height:21px;" allowTransparency="true"></iframe>';
 				}
 				
@@ -225,6 +227,16 @@
 					if ($container_fb.find('span.switch').hasClass('off')) {
 						$container_fb.addClass('info_off');
 						$container_fb.find('span.switch').addClass('on').removeClass('off').html(options.services.facebook.txt_fb_on);
+						if ((options.services.facebook.app_id != '') && ($('#fb-root').length == 0)) {
+							$('body').prepend('<div id="fb-root"></div>');
+							(function(d, s, id) {
+							var js, fjs = d.getElementsByTagName(s)[0];
+								if (d.getElementById(id)) return;
+								js = d.createElement(s); js.id = id;
+								js.src = '//connect.facebook.net/' + options.services.facebook.language + '/all.js#xfbml=1&appId=' + options.services.facebook.app_id;
+								fjs.parentNode.insertBefore(js, fjs);
+							}(document, 'script', 'facebook-jssdk'));
+						}
 						$container_fb.find('img.fb_like_privacy_dummy').replaceWith(fb_code);
 					} else {
 						$container_fb.removeClass('info_off');
