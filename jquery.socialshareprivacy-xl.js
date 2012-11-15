@@ -370,7 +370,7 @@
 				}
 				else
 				{
-					var linkedin_code = '<div class="LinkedIn"><script src="//platform.linkedin.com/in.js" type="text/javascript"></script><script type="IN/Share"></script></div>';
+					var linkedin_code = '<div class="LinkedIn"><script src="//platform.linkedin.com/in.js" type="text/javascript"></script><script type="IN/Share" data-counter="right"></script></div>';
 				}
 				
 				
