@@ -119,7 +119,7 @@
 						'display_name'      : 'Twitter',
 						'referrer_track'    : '', 
 						'tweet_text'        : getTweetText,
-						'language'          : 'en',
+						'language'          : 'de',
 						'share_btn_code'	: ''	
 					},
 					'gplus' : {
@@ -150,8 +150,8 @@
 						'status'            : 'on',
 						'dummy_img'         : 'socialshareprivacy/images/dummy_linkedin.png',
 						'txt_info'          : '2 Klicks f&uuml;r mehr Datenschutz: Erst wenn Sie hier klicken, wird der Button aktiv und Sie k&ouml;nnen Ihre Empfehlung an LinkedIn senden. Schon beim Aktivieren werden Daten an Dritte &uuml;bertragen &ndash; siehe <em>i</em>.',
-						'txt_xing_off'      : 'nicht mit LinkedIn verbunden',
-						'txt_xing_on'       : 'mit LinkedIn verbunden',
+						'txt_linkedin_off'  : 'nicht mit LinkedIn verbunden',
+						'txt_linkedin_on'   : 'mit LinkedIn verbunden',
 						'perma_option'      : 'on',
 						'display_name'      : 'LinkedIn',
 						'referrer_track'    : '',
