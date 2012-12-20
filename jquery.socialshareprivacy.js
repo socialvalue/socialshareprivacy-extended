@@ -108,7 +108,7 @@
                     'display_name'      : 'Twitter',
                     'referrer_track'    : '', 
                     'tweet_text'        : getTweetText,
-                    'language'          : 'en'
+                    'language'          : 'de'
                 },
                 'gplus' : {
                     'status'            : 'on',
